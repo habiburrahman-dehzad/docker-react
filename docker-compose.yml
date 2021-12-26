@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: mirs998/frontend-dev
+    ports:
+      - '5000:3000'
+    volumes:
+      - .:/usr/app/frontend
+
+  react-app-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: mirs998/frontend-dev
+    volumes:
+      - .:/usr/app/frontend
+    command: ['yarn', 'test']

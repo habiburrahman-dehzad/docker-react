@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR /app/frontend
+
+COPY package.json .
+
+RUN yarn install
+COPY public .
+COPY . .
+
+CMD [ "yarn", "start" ]
